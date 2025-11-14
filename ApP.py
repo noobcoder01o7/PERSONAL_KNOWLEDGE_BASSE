@@ -4,7 +4,7 @@ from langchain_community.document_loaders import DirectoryLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_chroma import Chroma
 from langchain_community.embeddings import OllamaEmbeddings
-from langchain_community.llms import Ollama
+from langchain_ollama import OllamaLLM
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnablePassthrough  
 from langchain_core.output_parsers import StrOutputParser 
@@ -55,8 +55,7 @@ if query_text:
             embeddings = OllamaEmbeddings(model='llama3')
             db = Chroma(persist_directory=CHROMA_PATH, embedding_function=embeddings)
             retriever = db.as_retriever()
-            model = Ollama(model="llama3")
-
+           model = OllamaLLM(model="llama3")
        
             prompt_template = """
             Answer the question based only on the following context:
