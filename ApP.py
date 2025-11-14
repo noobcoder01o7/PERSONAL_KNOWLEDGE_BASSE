@@ -55,7 +55,7 @@ if query_text:
             embeddings = OllamaEmbeddings(model='llama3')
             db = Chroma(persist_directory=CHROMA_PATH, embedding_function=embeddings)
             retriever = db.as_retriever()
-           model = OllamaLLM(model="llama3")
+            model = OllamaLLM(model="llama3")
        
             prompt_template = """
             Answer the question based only on the following context:
