@@ -5,4 +5,5 @@ pypdf
 ollama
 jupyter
 langchain-groq
+langchain_text_splitters
 streamlit
